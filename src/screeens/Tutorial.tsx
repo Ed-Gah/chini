@@ -1,3 +1,4 @@
+import {useState} from 'react';
 import {Box, Center, VStack, Text} from 'native-base';
 import React from 'react';
 import {PrimaryBtn} from '../components/Button';
@@ -7,6 +8,20 @@ import SecondaryBtn from '../components/SecondaryBtn';
 import {Colors} from '../constants/Colors';
 
 const TutorialScreen = ({navigation}: any) => {
+  // Inputs state object
+  const [inputs, setInputs] = useState({
+    name: '',
+    tribe: '',
+  });
+
+  // Change the input state Change
+  const handleInputChange = (text: any, input: any) => {
+    setInputs((prevState: any) => ({...prevState, [input]: text}));
+    console.log('State', text);
+  };
+
+  console.log('The is my input state', inputs);
+
   return (
     <Box bg={Colors.background} flex={1}>
       <Center mt={32}>
@@ -22,8 +37,16 @@ const TutorialScreen = ({navigation}: any) => {
           Enter your tribe below to see learn your culture
         </Text>
         <VStack space={6}>
-          <CustomInput text="Enter your name" color={Colors.primary} />
-          <CustomInput text="Tribe" color={Colors.primary} />
+          <CustomInput
+            text="Enter your name"
+            color={Colors.primary}
+            onChangeText={(text: any) => handleInputChange(text, 'name')}
+          />
+          <CustomInput
+            text="Tribe"
+            color={Colors.primary}
+            onChangeText={(text: any) => handleInputChange(text, 'tribe')}
+          />
           <PrimaryBtn text="Next" onPress={() => navigation.navigate('Home')} />
           <SecondaryBtn text="Explore" />
         </VStack>

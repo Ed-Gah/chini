@@ -6,6 +6,6 @@ type InputTypes = {
   color: string;
 };
 
-export const CustomInput: FC<InputTypes> = ({text, color}) => {
-  return <Input w={'75%'} placeholder={text} borderColor={color} />;
+export const CustomInput: FC<InputTypes> = ({text, color}, ...props) => {
+  return <Input {...props} w={'75%'} placeholder={text} borderColor={color} />;
 };

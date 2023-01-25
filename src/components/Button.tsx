@@ -8,7 +8,7 @@ type ButtonTypes = {
   onPress: () => void;
 };
 
-export const PrimaryBtn: FC<ButtonTypes> = ({text, onPress}) => {
+export const PrimaryBtn: FC<ButtonTypes> = ({text, onPress}, ...props) => {
   return (
     <TouchableOpacity onPress={onPress}>
       <Box bgColor={theme.colors.main.primary}>
@@ -16,7 +16,8 @@ export const PrimaryBtn: FC<ButtonTypes> = ({text, onPress}) => {
           py={2.5}
           fontWeight={'bold'}
           textAlign={'center'}
-          color={theme.colors.main.bgColor}>
+          color={theme.colors.main.bgColor}
+          {...props}>
           {text}
         </Text>
       </Box>
