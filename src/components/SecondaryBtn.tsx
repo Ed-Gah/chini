@@ -10,8 +10,9 @@ type ButtonTypes = {
 console.log('Primary Theme', theme.colors.main.primary);
 export default function SecondaryBtn({text, onPress}: ButtonTypes) {
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity>
       <Text
+        onPress={onPress}
         fontWeight={'bold'}
         borderRadius={3}
         py={2.5}

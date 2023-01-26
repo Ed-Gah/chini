@@ -1,9 +1,12 @@
 import React, {useCallback} from 'react';
 import {BackHandler, Alert} from 'react-native';
-import {Box} from 'native-base';
+import {Box, Text} from 'native-base';
 import {useFocusEffect} from '@react-navigation/native';
+import {useSelector} from 'react-redux';
 
 const HomeScreen = () => {
+  const {user} = useSelector((state: any) => state);
+  console.log('User is', user);
   useFocusEffect(
     useCallback(() => {
       const onBackPress = () => {
@@ -18,7 +21,11 @@ const HomeScreen = () => {
         BackHandler.removeEventListener('hardwareBackPress', onBackPress);
     }, []),
   );
-  return <Box>The Main Screen</Box>;
+  return (
+    <Box>
+      <Text>Chini welcomes your {user && user.name}</Text>
+    </Box>
+  );
 };
 
 export default HomeScreen;

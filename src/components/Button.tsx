@@ -10,9 +10,10 @@ type ButtonTypes = {
 
 export const PrimaryBtn: FC<ButtonTypes> = ({text, onPress}, ...props) => {
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity>
       <Box bgColor={theme.colors.main.primary}>
         <Text
+          onPress={onPress}
           py={2.5}
           fontWeight={'bold'}
           textAlign={'center'}
