@@ -1,14 +1,16 @@
 import {useState} from 'react';
-import {Box, Center, VStack, Text} from 'native-base';
+import {Box, Center, VStack, Text, Select} from 'native-base';
 import React from 'react';
+import {useDispatch} from 'react-redux';
+import {KeyboardAvoidingView} from 'react-native';
+import {login} from '../store';
 import {PrimaryBtn} from '../components/Button';
 import {CustomInput} from '../components/CustomInput';
 import Logo from '../components/Logo';
 import SecondaryBtn from '../components/SecondaryBtn';
 import {Colors} from '../constants/Colors';
-import {useDispatch} from 'react-redux';
-import {login} from '../store';
-import {KeyboardAvoidingView} from 'react-native';
+
+const {Item} = Select;
 
 const TutorialScreen = ({navigation}: any) => {
   const dispatch = useDispatch();
@@ -19,19 +21,22 @@ const TutorialScreen = ({navigation}: any) => {
     tribe: '',
   });
 
+  // mock data for tribes
+  const tribes = ['Kom', 'Kambe', 'Bafmeng', 'Bum', 'Oku'];
+
   // Change the input state Change
   const handleInputChange = (text: any, input: any) => {
     setInputs((prevState: any) => ({...prevState, [input]: text}));
-    console.log('State', text);
   };
 
   const handleNext = () => {
-    console.log('Botton Pressed');
-    dispatch(login(inputs));
+    const userData = {
+      name: inputs.name,
+      tribe: inputs.tribe,
+    };
+    dispatch(login(userData));
     navigation.navigate('Home');
   };
-
-  console.log('The is my input state', inputs);
 
   return (
     <Box bg={Colors.background} flex={1}>
@@ -39,7 +44,12 @@ const TutorialScreen = ({navigation}: any) => {
         <Logo />
       </Center>
 
-      <Text color={Colors.primary} width={'75%'} mx={'auto'} mt={6}>
+      <Text
+        color={Colors.tertiary}
+        width={'75%'}
+        mx={'auto'}
+        mt={6}
+        textAlign={'center'}>
         Chini will help you know more about the settlement, culture, language,
         traditiion, and many more of your tribe.
       </Text>
@@ -55,11 +65,15 @@ const TutorialScreen = ({navigation}: any) => {
               onChangeText={(text: any) => handleInputChange(text, 'name')}
             />
 
-            <CustomInput
-              text="Tribe"
-              color={Colors.primary}
-              onChangeText={(text: any) => handleInputChange(text, 'tribe')}
-            />
+            <Select
+              selectedValue={inputs.tribe}
+              onValueChange={(text: any) => handleInputChange(text, 'tribe')}
+              borderColor={Colors.primary}
+              placeholder={'Select your tribe'}>
+              {tribes.map((item: any, index: any) => (
+                <Item key={index} label={item} value={item} />
+              ))}
+            </Select>
 
             <PrimaryBtn text="Next" onPress={handleNext} />
             <SecondaryBtn

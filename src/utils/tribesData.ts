@@ -1,0 +1,78 @@
+export const tribes = [
+  {
+    name: 'Kom',
+    region: 'NW',
+    divison: 'Boyo',
+    subDivision: 'Fundong',
+    relatedTribes: ['Bafmeng', 'Aku', 'Bum'],
+    meals: {
+      name: 'Fufucorn & Kati kati',
+      receipe: 'The recepie',
+      significancs: 'This means signifies..',
+      image: '',
+    },
+    dressing: {
+      name: 'dala',
+      worn: 'By the elder',
+      significancs: 'This means',
+      image: '',
+    },
+    marriage: {
+      name: 'ndo-wi',
+      description: 'This is an event carried out when the...',
+      significancs: 'Approval of both parents',
+      image: '',
+    },
+    history: {description: 'Kom people originated from the...', image: ''},
+    tradition: {
+      name: 'ndo-wi',
+      description: 'This is an event carried out when the...',
+      significancs: 'Approval of both parents',
+      image: '',
+    },
+    dance: {
+      name: 'ndo-wi',
+      description: 'This is an event carried out when the...',
+      significancs: 'Approval of both parents',
+      image: '',
+    },
+  },
+  {
+    name: 'Kambe',
+    region: 'NW',
+    divison: 'Boyo',
+    subDivision: 'Fundong',
+    relatedTribes: ['Bafmeng', 'Aku', 'Bum'],
+    meals: {
+      name: 'Fufucorn & Kati kati',
+      receipe: 'The recepie',
+      significancs: 'This means signifies..',
+      image: '',
+    },
+    dressing: {
+      name: 'dala',
+      worn: 'By the elder',
+      significancs: 'This means',
+      image: '',
+    },
+    marriage: {
+      name: 'ndo-wi',
+      description: 'This is an event carried out when the...',
+      significancs: 'Approval of both parents',
+      image: '',
+    },
+    history: {description: 'Kom people originated from the...', image: ''},
+    tradition: {
+      name: 'ndo-wi',
+      description: 'This is an event carried out when the...',
+      significancs: 'Approval of both parents',
+      image: '',
+    },
+    dance: {
+      name: 'ndo-wi',
+      description: 'This is an event carried out when the...',
+      significancs: 'Approval of both parents',
+      image: '',
+    },
+  },
+];
